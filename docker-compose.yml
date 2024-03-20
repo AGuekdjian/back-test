@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "secret"
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_SSL_CIPHER: "TLSv1.2"
+    ports:
+      - "3366:3306"
+    expose:
+      - "3306"
+  backend:
+    container_name: backend-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - my-custom-network
+    depends_on:
+      - mysql
+networks:
+  my-custom-network:
+    driver: bridge
