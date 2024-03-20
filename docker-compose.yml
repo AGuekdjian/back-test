@@ -14,17 +14,3 @@ services:
       - "3366:3306"
     expose:
       - "3306"
-  backend:
-    container_name: backend-test
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    networks:
-      - my-custom-network
-    depends_on:
-      - mysql
-networks:
-  my-custom-network:
-    driver: bridge
