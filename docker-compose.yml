@@ -14,3 +14,11 @@ services:
       - "3366:3306"
     expose:
       - "3306"
+  backend:
+    image: prob-back
+    container_name: backend-prob
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
