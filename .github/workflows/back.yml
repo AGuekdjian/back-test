@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
       - name: Check
         run: ls
-      - name: Moving and pulling project
-        run: cd back-test && git pull
+      - name: Pulling project
+        run: git pull
       - name: Up docker compose
         run: ./script.sh
