@@ -8,7 +8,7 @@ public class DemoController {
 
     @GetMapping("/publico")
     public String saludopublico(){
-        return "Ingreso a un endpoint publico, probando";
+        return "Ingreso a un endpoint publico";
     }
 
     @GetMapping("/restringido")
