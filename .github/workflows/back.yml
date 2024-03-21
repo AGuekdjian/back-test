@@ -11,5 +11,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Moving and executing project
+      - name: Moving and pulling project
         run: cd back-test && git pull
+      - name: Up docker compose
+        run: ./script.sh
